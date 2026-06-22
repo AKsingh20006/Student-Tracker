@@ -2,25 +2,38 @@
 <html>
 <head>
     <title>Add Grade</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<h2>Add Grade</h2>
+<div class="container">
 
-<form method="POST">
+    <h2>📝 Add Grade</h2>
 
-    Roll Number:
-    <input type="text" name="roll" required><br><br>
+    <form method="POST">
 
-    Subject:
-    <input type="text" name="subject" required><br><br>
+        <div>
+            <span class="form-label">Roll Number</span><br>
+            <input type="text" name="roll" required>
+        </div>
 
-    Grade:
-    <input type="number" name="grade" required><br><br>
+        <div>
+            <span class="form-label">Subject</span><br>
+            <input type="text" name="subject" required>
+        </div>
 
-    <button type="submit">Add Grade</button>
+        <div>
+            <span class="form-label">Grade</span><br>
+            <input type="number" name="grade" required>
+        </div>
 
-</form>
+        <button type="submit" class="btn btn-green">Add Grade</button>
+
+    </form>
+
+    <a class="back-link" href="/">⬅ Back to Home</a>
+
+</div>
 
 </body>
 </html>
