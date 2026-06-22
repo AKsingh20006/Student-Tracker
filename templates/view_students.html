@@ -2,28 +2,33 @@
 <html>
 <head>
     <title>Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<h2>Student Records</h2>
+<div class="container">
 
-{% for student in students %}
+    <h2>👀 Student Records</h2>
 
-<hr>
+    {% if students %}
 
-<h3>{{ student.name }}</h3>
+        {% for student in students %}
 
-<p>Roll No: {{ student.roll }}</p>
+        <div class="student-card">
 
-<p>Average: {{ student.average }}</p>
+            <h3>{{ student.name }}</h3>
+            <p>Roll No: {{ student.roll }}</p>
+            <span class="average-pill">Average: {{ student.average }}</span>
 
-<ul>
-{% for subject, grade in student.grades.items() %}
-<li>{{ subject }} : {{ grade }}</li>
-{% endfor %}
-</ul>
+            <ul class="grades-list">
+            {% for subject, grade in student.grades.items() %}
+                <li>{{ subject }} : {{ grade }}</li>
+            {% endfor %}
+            </ul>
 
-{% endfor %}
+            <form class="delete-form" method="POST" action="/delete_student/{{ student.roll }}"
+                  onsubmit="return confirm('Delete {{ student.name }}? This cannot be undone.');">
+                <button type="submit" class="btn btn-red">🗑 Delete Student</button>
+            </form>
 
-</body>
-</html>
+        </div>
