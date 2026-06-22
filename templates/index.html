@@ -2,16 +2,21 @@
 <html>
 <head>
     <title>Student Performance Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<h1>Student Performance Tracker</h1>
+<div class="container">
 
-<a href="/add_student">Add Student</a><br><br>
+    <h1>📊 Student Performance Tracker</h1>
 
-<a href="/add_grade">Add Grades</a><br><br>
+    <div class="nav-links">
+        <a class="btn btn-blue" href="/add_student">➕ Add Student</a>
+        <a class="btn btn-green" href="/add_grade">📝 Add Grades</a>
+        <a class="btn btn-purple" href="/view_students">👀 View Students</a>
+    </div>
 
-<a href="/view_students">View Students</a>
+</div>
 
 </body>
 </html>
