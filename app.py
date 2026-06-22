@@ -90,6 +90,19 @@ def view_students():
     )
 
 
+@app.route("/delete_student/<roll>", methods=["POST"])
+def delete_student(roll):
+
+    students = load_students()
+
+    # keep every student whose roll does NOT match the one being deleted
+    students = [s for s in students if s["roll"] != roll]
+
+    save_students(students)
+
+    return redirect("/view_students")
+
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
